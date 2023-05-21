@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final _showErrorProvider =
-    StateProvider.autoDispose.family<bool, dynamic>((ref, error) {
-  return false;
-});
-
-class PhotoErrorCard extends ConsumerWidget {
+class PhotoErrorCard extends StatefulWidget {
   final dynamic error;
 
   const PhotoErrorCard({super.key, required this.error});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final showError = ref.watch(_showErrorProvider(error));
+  State<PhotoErrorCard> createState() => _PhotoErrorCardState();
+}
+
+class _PhotoErrorCardState extends State<PhotoErrorCard> {
+  bool showError = false;
+
+  @override
+  Widget build(BuildContext context) {
     return Material(
       color: Colors.grey[200],
       child: InkWell(
-        onTap: () {
-          ref
-              .read(_showErrorProvider(error).notifier)
-              .update((state) => !state);
-        },
+        onTap: () => setState(() {
+          showError = !showError;
+        }),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
           child: Center(
@@ -44,7 +42,7 @@ class PhotoErrorCard extends ConsumerWidget {
                       vertical: 5,
                     ),
                     child: Text(
-                      '$error',
+                      '${widget.error}',
                       style: const TextStyle(
                         fontSize: 8,
                         color: Colors.black,

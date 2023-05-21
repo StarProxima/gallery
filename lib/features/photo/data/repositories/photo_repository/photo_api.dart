@@ -14,6 +14,8 @@ abstract class PhotoApi {
   Future<PaginationList<PhotoGetPhotoGetMediaDto>> getPhotos({
     @Query("page") int? page,
     @Query("limit") int? limit,
+    @Query("new") bool? newPhoto,
+    @Query("popular") bool? popular,
   });
 
   @GET("/photos/{id}")
