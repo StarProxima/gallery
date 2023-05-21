@@ -22,7 +22,7 @@ mixin _$PhotoEntity {
   String get description => throw _privateConstructorUsedError;
   bool get isNew => throw _privateConstructorUsedError;
   bool get isPopular => throw _privateConstructorUsedError;
-  MediaEntity get image => throw _privateConstructorUsedError;
+  MediaEntity? get image => throw _privateConstructorUsedError;
   String? get user => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -43,10 +43,10 @@ abstract class $PhotoEntityCopyWith<$Res> {
       String description,
       bool isNew,
       bool isPopular,
-      MediaEntity image,
+      MediaEntity? image,
       String? user});
 
-  $MediaEntityCopyWith<$Res> get image;
+  $MediaEntityCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$PhotoEntityCopyWithImpl<$Res, $Val extends PhotoEntity>
     Object? description = null,
     Object? isNew = null,
     Object? isPopular = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? user = freezed,
   }) {
     return _then(_value.copyWith(
@@ -96,10 +96,10 @@ class _$PhotoEntityCopyWithImpl<$Res, $Val extends PhotoEntity>
           ? _value.isPopular
           : isPopular // ignore: cast_nullable_to_non_nullable
               as bool,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as MediaEntity,
+              as MediaEntity?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -109,8 +109,12 @@ class _$PhotoEntityCopyWithImpl<$Res, $Val extends PhotoEntity>
 
   @override
   @pragma('vm:prefer-inline')
-  $MediaEntityCopyWith<$Res> get image {
-    return $MediaEntityCopyWith<$Res>(_value.image, (value) {
+  $MediaEntityCopyWith<$Res>? get image {
+    if (_value.image == null) {
+      return null;
+    }
+
+    return $MediaEntityCopyWith<$Res>(_value.image!, (value) {
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
@@ -131,11 +135,11 @@ abstract class _$$_PhotoEntityCopyWith<$Res>
       String description,
       bool isNew,
       bool isPopular,
-      MediaEntity image,
+      MediaEntity? image,
       String? user});
 
   @override
-  $MediaEntityCopyWith<$Res> get image;
+  $MediaEntityCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -155,7 +159,7 @@ class __$$_PhotoEntityCopyWithImpl<$Res>
     Object? description = null,
     Object? isNew = null,
     Object? isPopular = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? user = freezed,
   }) {
     return _then(_$_PhotoEntity(
@@ -183,10 +187,10 @@ class __$$_PhotoEntityCopyWithImpl<$Res>
           ? _value.isPopular
           : isPopular // ignore: cast_nullable_to_non_nullable
               as bool,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as MediaEntity,
+              as MediaEntity?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -205,7 +209,7 @@ class _$_PhotoEntity implements _PhotoEntity {
       required this.description,
       required this.isNew,
       required this.isPopular,
-      required this.image,
+      this.image,
       this.user});
 
   @override
@@ -221,7 +225,7 @@ class _$_PhotoEntity implements _PhotoEntity {
   @override
   final bool isPopular;
   @override
-  final MediaEntity image;
+  final MediaEntity? image;
   @override
   final String? user;
 
@@ -267,7 +271,7 @@ abstract class _PhotoEntity implements PhotoEntity {
       required final String description,
       required final bool isNew,
       required final bool isPopular,
-      required final MediaEntity image,
+      final MediaEntity? image,
       final String? user}) = _$_PhotoEntity;
 
   @override
@@ -283,7 +287,7 @@ abstract class _PhotoEntity implements PhotoEntity {
   @override
   bool get isPopular;
   @override
-  MediaEntity get image;
+  MediaEntity? get image;
   @override
   String? get user;
   @override

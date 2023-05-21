@@ -13,7 +13,7 @@ class PhotoEntity with _$PhotoEntity {
     required String description,
     required bool isNew,
     required bool isPopular,
-    required MediaEntity image,
+    MediaEntity? image,
     String? user,
   }) = _PhotoEntity;
 }
