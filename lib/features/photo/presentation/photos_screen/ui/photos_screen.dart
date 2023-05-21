@@ -38,8 +38,8 @@ class _PhotosScreenState extends ConsumerState<_PhotosScreen> {
         ),
         body: const TabBarView(
           children: [
-            PhotosScreenGrid(photoStatus: PhotoStatus.newPhoto),
-            PhotosScreenGrid(photoStatus: PhotoStatus.popularPhoto),
+            PhotosScreenGrid(photoType: PhotoType.newPhoto),
+            PhotosScreenGrid(photoType: PhotoType.popularPhoto),
           ],
         ),
       ),

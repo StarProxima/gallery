@@ -1,6 +1,6 @@
-// ignore_for_file: avoid_public_notifier_properties
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 extension RefCache on AutoDisposeFutureProviderRef {
@@ -18,8 +18,14 @@ extension RefCache on AutoDisposeFutureProviderRef {
 }
 
 class Controller extends Notifier<void> {
+  @protected
   @override
   void build() {}
 
-  T read<T>(ProviderListenable<T> provider) => super.ref.read(provider);
+  @protected
+  @override
+  get ref => super.ref;
+
+  @protected
+  T read<T>(ProviderListenable<T> provider) => ref.read(provider);
 }

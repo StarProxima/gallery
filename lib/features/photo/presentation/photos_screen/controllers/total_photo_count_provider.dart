@@ -5,6 +5,6 @@ import 'fetch_photo_provider.dart';
 
 /// Updates from [fetchPhotoListProvider]
 final totalPhotoCountProvider =
-    StateProvider.family<int?, PhotoStatus>((ref, status) {
+    StateProvider.family<int?, PhotoType>((ref, status) {
   return null;
 });

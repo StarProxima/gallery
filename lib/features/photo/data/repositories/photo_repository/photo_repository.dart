@@ -24,13 +24,13 @@ class PhotoRepository {
   Future<PaginationList<PhotoEntity>> getPhotos({
     int? page,
     int? limit,
-    PhotoStatus status = PhotoStatus.none,
+    PhotoType type = PhotoType.none,
   }) async {
     final listResultDto = await _api.getPhotos(
       page: page,
       limit: limit,
-      newPhoto: status.isNewPhoto ? true : null,
-      popular: status.isPopularPhoto ? true : null,
+      newPhoto: type.isNewPhoto ? true : null,
+      popular: type.isPopularPhoto ? true : null,
     );
     final listResultEntity = listResultDto.map(_mapper.toEntity);
     return listResultEntity;
