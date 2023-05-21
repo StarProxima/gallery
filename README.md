@@ -1,16 +1,24 @@
-# gallery
+# Flutter gallery app
 
-A new Flutter project.
+### Небольшое приложения галлереи на Flutter, написанное с использованием Riverpod. Архитектура частично основана на Clean architecture.
 
-## Getting Started
+Приложение предоставляет возможность просмотра новых и популярных изображений из стороннего API. Оно также обладает функциональностью пагинации, обработкой ошибок и поддержкой кэширования.
 
-This project is a starting point for a Flutter application.
+Изначальные требования:
 
-A few resources to get you started if this is your first Flutter project:
+- Имеет TapBar с двумя вкладками: New и Popular.
+- Имеет три экрана: New, Popular и экран подробной информации об изображении.
+- Обладает функциональностью загрузки изображений через сторонний API и вывод их на соответствующие экраны.
+- Поддерживает пагинацию: при прокрутке страницы до последнего видимого элемента подгружаются следующие изображения.
+- При отсутствии интернета выводит картинку об отсутствии соединения.
+- Имеет Pull-to-refresh на экранах New и Popular: при свайпе вниз очищаются предыдущие данные и делается новый запрос.
+- При нажатии на изображение открывается экран с подробной информацией, включая изображение, его название и описание.
+- Поддерживает просмотр контента в ландшафтном режиме.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Технологии и инструменты
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter версии 3.10.1
+- Dart версии 3.0.1
+- Riverpod для управления состоянием и внедрения зависимостей
+- Dio и Retrofit для выполнения запросов к API
+- Freezed для генерации моделей
