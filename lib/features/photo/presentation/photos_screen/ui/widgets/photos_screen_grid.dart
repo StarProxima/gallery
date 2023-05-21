@@ -25,7 +25,7 @@ class PhotosScreenGrid extends ConsumerWidget {
       itemCount: ref.watch(totalPhotoCountProvider(photoStatus)),
       itemBuilder: (context, index) {
         return Consumer(
-          builder: (context, ref, chimmerLoading) {
+          builder: (context, ref, _) {
             final photoEntityAsync =
                 ref.watch(fetchPhotoProvider((index, photoStatus)));
 
