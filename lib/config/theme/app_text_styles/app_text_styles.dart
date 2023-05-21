@@ -33,7 +33,7 @@ class _$AppTextStyles {
   static List<TextStyle> min = [
     GoogleFonts.roboto(
       fontSize: 16,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w400,
       color: _textColor,
     ),
   ];

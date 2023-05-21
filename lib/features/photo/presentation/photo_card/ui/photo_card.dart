@@ -10,9 +10,9 @@ import '../../../../../shared/widgets/shimmer_loading.dart';
 import '../../../domain/media_entity/media_entity.dart';
 
 class PhotoCard extends ConsumerWidget {
-  final MediaEntity mediaEntity;
+  final MediaEntity media;
 
-  const PhotoCard({super.key, required this.mediaEntity});
+  const PhotoCard({super.key, required this.media});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,7 +23,7 @@ class PhotoCard extends ConsumerWidget {
       clipBehavior: Clip.antiAlias,
       child: Consumer(
         builder: (context, ref, child) {
-          final mediaItemAsync = ref.watch(fetchMediaProvider(mediaEntity));
+          final mediaItemAsync = ref.watch(fetchMediaProvider(media));
           return mediaItemAsync.when(
             data: (data) {
               return InkWell(
