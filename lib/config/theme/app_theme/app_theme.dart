@@ -17,7 +17,7 @@ class AppTheme {
         centerTitle: true,
         surfaceTintColor: colors.accent,
         titleTextStyle: textStyles.title,
-        foregroundColor: colors.white,
+        foregroundColor: colors.title,
       ),
       tabBarTheme: TabBarTheme(
         indicatorColor: colors.accent,
@@ -26,6 +26,17 @@ class AppTheme {
         labelColor: colors.accent,
         // unselectedLabelColor: colors.subTitle,
         indicatorSize: TabBarIndicatorSize.label,
+      ),
+      chipTheme: ChipThemeData(
+        backgroundColor: colors.accent,
+        side: BorderSide.none,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(999),
+        ),
+        labelStyle: textStyles.min.copyWith(
+          color: colors.white,
+          overflow: TextOverflow.ellipsis,
+        ),
       ),
       extensions: [
         colors,

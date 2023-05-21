@@ -16,7 +16,7 @@ class PhotoGetPhotoGetMediaDto with _$PhotoGetPhotoGetMediaDto {
     required String description,
     @JsonKey(name: 'new') required bool newPhoto,
     required bool popular,
-    required MediaObjectGetPhotoGetMediaDto image,
+    MediaObjectGetPhotoGetMediaDto? image,
     String? user,
   }) = _PhotoGetPhotoGetMediaDto;
 

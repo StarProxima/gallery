@@ -15,8 +15,10 @@ _$_PhotoGetPhotoGetMediaDto _$$_PhotoGetPhotoGetMediaDtoFromJson(
       description: json['description'] as String,
       newPhoto: json['new'] as bool,
       popular: json['popular'] as bool,
-      image: MediaObjectGetPhotoGetMediaDto.fromJson(
-          json['image'] as Map<String, dynamic>),
+      image: json['image'] == null
+          ? null
+          : MediaObjectGetPhotoGetMediaDto.fromJson(
+              json['image'] as Map<String, dynamic>),
       user: json['user'] as String?,
     );
 

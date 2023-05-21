@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../utils/riverpod.dart';
 import '../../../domain/enums/photo_type.dart';
+import '../../../domain/photo_entity/photo_entity.dart';
 import '../../photo_card/controllers/fetch_media_provider.dart';
 import 'fetch_photo_provider.dart';
 
@@ -21,5 +22,9 @@ class PhotoScreenController extends Controller {
     );
 
     await Future.delayed(const Duration(milliseconds: 1000));
+  }
+
+  void goToDetailScreen(PhotoEntity photo) {
+    print('Go to detail screen');
   }
 }

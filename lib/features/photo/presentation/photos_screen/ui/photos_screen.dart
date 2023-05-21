@@ -24,22 +24,33 @@ class _PhotosScreen extends ConsumerStatefulWidget {
 class _PhotosScreenState extends ConsumerState<_PhotosScreen> {
   @override
   Widget build(BuildContext context) {
+    final isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Photos'),
-          bottom: const TabBar(
-            tabs: [
-              Tab(text: 'New'),
-              Tab(text: 'Popular'),
-            ],
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(isLandscape ? 48 : 84),
+          child: AppBar(
+            title: const Text('Photos'),
+            bottom: const TabBar(
+              tabs: [
+                Tab(text: 'New'),
+                Tab(text: 'Popular'),
+              ],
+            ),
           ),
         ),
-        body: const TabBarView(
+        body: const Column(
           children: [
-            PhotosScreenGrid(photoType: PhotoType.newPhoto),
-            PhotosScreenGrid(photoType: PhotoType.popularPhoto),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  PhotosScreenGrid(photoType: PhotoType.newPhoto),
+                  PhotosScreenGrid(photoType: PhotoType.popularPhoto),
+                ],
+              ),
+            ),
           ],
         ),
       ),

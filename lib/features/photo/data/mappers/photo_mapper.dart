@@ -14,7 +14,7 @@ class PhotoMapper {
       description: dto.description,
       isNew: dto.newPhoto,
       isPopular: dto.popular,
-      image: _mediaMapper.toEntity(dto.image),
+      image: dto.image != null ? _mediaMapper.toEntity(dto.image!) : null,
       user: dto.user,
     );
   }
@@ -27,7 +27,7 @@ class PhotoMapper {
       description: entity.description,
       newPhoto: entity.isNew,
       popular: entity.isPopular,
-      image: _mediaMapper.toDto(entity.image),
+      image: entity.image != null ? _mediaMapper.toDto(entity.image!) : null,
       user: entity.user,
     );
   }

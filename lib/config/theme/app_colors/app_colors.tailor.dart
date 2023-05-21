@@ -14,6 +14,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.black,
     required this.grayLight,
     required this.subTitle,
+    required this.text,
     required this.title,
     required this.transperent,
     required this.white,
@@ -23,6 +24,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color black;
   final Color grayLight;
   final Color subTitle;
+  final Color text;
   final Color title;
   final Color transperent;
   final Color white;
@@ -32,6 +34,7 @@ class AppColors extends ThemeExtension<AppColors> {
     black: _$AppColors.black[0],
     grayLight: _$AppColors.grayLight[0],
     subTitle: _$AppColors.subTitle[0],
+    text: _$AppColors.text[0],
     title: _$AppColors.title[0],
     transperent: _$AppColors.transperent[0],
     white: _$AppColors.white[0],
@@ -47,6 +50,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? black,
     Color? grayLight,
     Color? subTitle,
+    Color? text,
     Color? title,
     Color? transperent,
     Color? white,
@@ -56,6 +60,7 @@ class AppColors extends ThemeExtension<AppColors> {
       black: black ?? this.black,
       grayLight: grayLight ?? this.grayLight,
       subTitle: subTitle ?? this.subTitle,
+      text: text ?? this.text,
       title: title ?? this.title,
       transperent: transperent ?? this.transperent,
       white: white ?? this.white,
@@ -70,6 +75,7 @@ class AppColors extends ThemeExtension<AppColors> {
       black: Color.lerp(black, other.black, t)!,
       grayLight: Color.lerp(grayLight, other.grayLight, t)!,
       subTitle: Color.lerp(subTitle, other.subTitle, t)!,
+      text: Color.lerp(text, other.text, t)!,
       title: Color.lerp(title, other.title, t)!,
       transperent: Color.lerp(transperent, other.transperent, t)!,
       white: Color.lerp(white, other.white, t)!,
@@ -85,6 +91,7 @@ class AppColors extends ThemeExtension<AppColors> {
             const DeepCollectionEquality().equals(black, other.black) &&
             const DeepCollectionEquality().equals(grayLight, other.grayLight) &&
             const DeepCollectionEquality().equals(subTitle, other.subTitle) &&
+            const DeepCollectionEquality().equals(text, other.text) &&
             const DeepCollectionEquality().equals(title, other.title) &&
             const DeepCollectionEquality()
                 .equals(transperent, other.transperent) &&
@@ -99,6 +106,7 @@ class AppColors extends ThemeExtension<AppColors> {
       const DeepCollectionEquality().hash(black),
       const DeepCollectionEquality().hash(grayLight),
       const DeepCollectionEquality().hash(subTitle),
+      const DeepCollectionEquality().hash(text),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(transperent),
       const DeepCollectionEquality().hash(white),

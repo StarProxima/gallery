@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../controllers/photo_card_controller.dart';
 import 'widgets/photo_error_card.dart';
 import '../controllers/fetch_media_provider.dart';
 
@@ -11,8 +10,13 @@ import '../../../domain/media_entity/media_entity.dart';
 
 class PhotoCard extends ConsumerWidget {
   final MediaEntity media;
+  final VoidCallback onTap;
 
-  const PhotoCard({super.key, required this.media});
+  const PhotoCard({
+    super.key,
+    required this.media,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,9 +31,7 @@ class PhotoCard extends ConsumerWidget {
           return mediaItemAsync.when(
             data: (data) {
               return InkWell(
-                onTap: () {
-                  ref.read(photoCardController.notifier).goToDetailScreen();
-                },
+                onTap: onTap,
                 child: Image.memory(
                   base64Decode(data.base64),
                   frameBuilder:

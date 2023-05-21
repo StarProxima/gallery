@@ -28,7 +28,7 @@ mixin _$PhotoGetPhotoGetMediaDto {
   @JsonKey(name: 'new')
   bool get newPhoto => throw _privateConstructorUsedError;
   bool get popular => throw _privateConstructorUsedError;
-  MediaObjectGetPhotoGetMediaDto get image =>
+  MediaObjectGetPhotoGetMediaDto? get image =>
       throw _privateConstructorUsedError;
   String? get user => throw _privateConstructorUsedError;
 
@@ -51,10 +51,10 @@ abstract class $PhotoGetPhotoGetMediaDtoCopyWith<$Res> {
       String description,
       @JsonKey(name: 'new') bool newPhoto,
       bool popular,
-      MediaObjectGetPhotoGetMediaDto image,
+      MediaObjectGetPhotoGetMediaDto? image,
       String? user});
 
-  $MediaObjectGetPhotoGetMediaDtoCopyWith<$Res> get image;
+  $MediaObjectGetPhotoGetMediaDtoCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ class _$PhotoGetPhotoGetMediaDtoCopyWithImpl<$Res,
     Object? description = null,
     Object? newPhoto = null,
     Object? popular = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? user = freezed,
   }) {
     return _then(_value.copyWith(
@@ -105,10 +105,10 @@ class _$PhotoGetPhotoGetMediaDtoCopyWithImpl<$Res,
           ? _value.popular
           : popular // ignore: cast_nullable_to_non_nullable
               as bool,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as MediaObjectGetPhotoGetMediaDto,
+              as MediaObjectGetPhotoGetMediaDto?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -118,8 +118,13 @@ class _$PhotoGetPhotoGetMediaDtoCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $MediaObjectGetPhotoGetMediaDtoCopyWith<$Res> get image {
-    return $MediaObjectGetPhotoGetMediaDtoCopyWith<$Res>(_value.image, (value) {
+  $MediaObjectGetPhotoGetMediaDtoCopyWith<$Res>? get image {
+    if (_value.image == null) {
+      return null;
+    }
+
+    return $MediaObjectGetPhotoGetMediaDtoCopyWith<$Res>(_value.image!,
+        (value) {
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
@@ -141,11 +146,11 @@ abstract class _$$_PhotoGetPhotoGetMediaDtoCopyWith<$Res>
       String description,
       @JsonKey(name: 'new') bool newPhoto,
       bool popular,
-      MediaObjectGetPhotoGetMediaDto image,
+      MediaObjectGetPhotoGetMediaDto? image,
       String? user});
 
   @override
-  $MediaObjectGetPhotoGetMediaDtoCopyWith<$Res> get image;
+  $MediaObjectGetPhotoGetMediaDtoCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -166,7 +171,7 @@ class __$$_PhotoGetPhotoGetMediaDtoCopyWithImpl<$Res>
     Object? description = null,
     Object? newPhoto = null,
     Object? popular = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? user = freezed,
   }) {
     return _then(_$_PhotoGetPhotoGetMediaDto(
@@ -194,10 +199,10 @@ class __$$_PhotoGetPhotoGetMediaDtoCopyWithImpl<$Res>
           ? _value.popular
           : popular // ignore: cast_nullable_to_non_nullable
               as bool,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as MediaObjectGetPhotoGetMediaDto,
+              as MediaObjectGetPhotoGetMediaDto?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -216,7 +221,7 @@ class _$_PhotoGetPhotoGetMediaDto implements _PhotoGetPhotoGetMediaDto {
       required this.description,
       @JsonKey(name: 'new') required this.newPhoto,
       required this.popular,
-      required this.image,
+      this.image,
       this.user});
 
   factory _$_PhotoGetPhotoGetMediaDto.fromJson(Map<String, dynamic> json) =>
@@ -236,7 +241,7 @@ class _$_PhotoGetPhotoGetMediaDto implements _PhotoGetPhotoGetMediaDto {
   @override
   final bool popular;
   @override
-  final MediaObjectGetPhotoGetMediaDto image;
+  final MediaObjectGetPhotoGetMediaDto? image;
   @override
   final String? user;
 
@@ -291,7 +296,7 @@ abstract class _PhotoGetPhotoGetMediaDto implements PhotoGetPhotoGetMediaDto {
       required final String description,
       @JsonKey(name: 'new') required final bool newPhoto,
       required final bool popular,
-      required final MediaObjectGetPhotoGetMediaDto image,
+      final MediaObjectGetPhotoGetMediaDto? image,
       final String? user}) = _$_PhotoGetPhotoGetMediaDto;
 
   factory _PhotoGetPhotoGetMediaDto.fromJson(Map<String, dynamic> json) =
@@ -311,7 +316,7 @@ abstract class _PhotoGetPhotoGetMediaDto implements PhotoGetPhotoGetMediaDto {
   @override
   bool get popular;
   @override
-  MediaObjectGetPhotoGetMediaDto get image;
+  MediaObjectGetPhotoGetMediaDto? get image;
   @override
   String? get user;
   @override

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../photo_detail_screen/ui/photo_detail_screen.dart';
+import '../../controllers/photos_screen_controller.dart';
 import 'photos_screen_refresh.dart';
 
 import '../../../../../../shared/widgets/no_connection_screen.dart';
@@ -22,6 +24,8 @@ class PhotosScreenGrid extends ConsumerStatefulWidget {
 class _PhotosScreenGridState extends ConsumerState<PhotosScreenGrid> {
   @override
   Widget build(BuildContext context) {
+    final controller = ref.watch(photoScreenController);
+
     final photoListAsync =
         ref.watch(fetchPhotoListProvider((1, widget.photoType)));
 
@@ -51,10 +55,28 @@ class _PhotosScreenGridState extends ConsumerState<PhotosScreenGrid> {
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                       child: ShimmerLoading(),
                     ),
-                    error: (err, stack) => PhotoErrorCard(error: err),
+                    error: (err, stack) => ClipRRect(
+                      borderRadius: const BorderRadius.all(Radius.circular(5)),
+                      child: PhotoErrorCard(error: err),
+                    ),
                     data: (photo) {
+                      if (photo.image == null) {
+                        return const ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          child: PhotoErrorCard(error: 'No Image Found'),
+                        );
+                      }
                       return PhotoCard(
-                        media: photo.image,
+                        media: photo.image!,
+                        onTap: () {
+                          controller.goToDetailScreen(photo);
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  PhotoDetailScreen(photo: photo),
+                            ),
+                          );
+                        },
                       );
                     },
                   );
